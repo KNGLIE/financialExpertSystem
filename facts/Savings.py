@@ -1,5 +1,6 @@
 from experta import Fact, Field
 
+
 # Define a class named "Savings" that inherits from the "Fact" class
 class Savings(Fact):
     # Define a field named "savings_account" of type int, which is mandatory

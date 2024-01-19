@@ -1,0 +1,56 @@
+<!-- result.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Advice Result</title>
+    <style>
+        body {
+            min-height: 100vh;
+            min-width: 100vw;
+            width: fit-content;
+            background-image: url("https://thumbs.wbm.im/pw/medium/8bb1787cc389a247fee703a9e3f9a1c4.avif");
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: blanchedalmond;
+        }
+        h1 {
+            color: darkgoldenrod;
+            text-shadow: 1px 1px 1px royalblue;
+            display: flex;
+            justify-content: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #advice {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Financial Advice Result</h1>
+
+    <div id="advice">
+        <h2>Financial Advice:</h2>
+        {% if advice_messages %}
+            <ul>
+                {% for advice_message in advice_messages %}
+                    <li>{{ advice_message }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No financial advice available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

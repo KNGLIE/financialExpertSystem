@@ -1,20 +1,23 @@
 import tkinter as tk
 from tkinter import messagebox
-from facts.CreditCard import CreditCard
-from facts.Expenses import Expenses
-from facts.EmergencyFund import EmergencyFund
+ 
 from engine.FinancialAdvice import FinancialAdvice
+from facts.CreditCard import CreditCard
+from facts.EmergencyFund import EmergencyFund
+from facts.Expenses import Expenses
 from facts.Income import Income
 from facts.RetirementSavings import RetirementSavings
 from facts.Savings import Savings
 
 
+# Class to create the GUI for the financial expert system
 class FinancialApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Financial Expert System")
-        self.geometry("850x750")
+        self.geometry("950x650")
 
+        # Create the input fields
         self.income_label = tk.Label(self, text="Monthly Income:")
         self.income_entry = tk.Entry(self)
 
@@ -40,7 +43,7 @@ class FinancialApp(tk.Tk):
 
         # Label to display advice
         self.advice_label = tk.Label(self, text="Financial Advice:")
-        self.advice_label.grid(row=8, columnspan=2, pady=5)  # Corrected placement
+        self.advice_label.grid(row=8, columnspan=2, pady=5) 
 
         # Layout
         self.income_label.grid(row=0, column=0, sticky="e", padx=5, pady=5)
@@ -66,8 +69,10 @@ class FinancialApp(tk.Tk):
 
         self.calculate_button.grid(row=7, columnspan=2, pady=10)
 
+    # Method to calculate the financial advice based on the provided input
     def calculate_financial_advice(self):
         try:
+            # Get the input values from the entry fields
             income = int(self.income_entry.get())
             expenses = int(self.expenses_entry.get())
             credit_card_debt = int(self.credit_card_entry.get())
@@ -76,6 +81,7 @@ class FinancialApp(tk.Tk):
             age = int(self.age_entry.get())
             emergency_fund = int(self.emergency_fund_entry.get())
 
+            # Create the facts based on the provided input
             engine = FinancialAdvice()
             engine.reset()
 
@@ -99,7 +105,7 @@ class FinancialApp(tk.Tk):
 
             engine.run()
 
-
+            # Check if all the input values are valid
             if not all(entry.isdigit() for entry in [self.income_entry.get(), self.expenses_entry.get(), self.credit_card_entry.get(), self.savings_entry.get(), self.retirement_savings_entry.get(), self.age_entry.get(), self.emergency_fund_entry.get()]):
                 raise ValueError("Invalid input. Please enter valid numerical values in all fields.")
 
@@ -112,6 +118,7 @@ class FinancialApp(tk.Tk):
             traceback.print_exc()
             messagebox.showerror("Input Error", f"{e}")
 
+    # Method to display the financial advice
     def display_advice(self, advice_messages):
         if advice_messages:
             advice_text = "\n".join(advice_messages)
@@ -122,4 +129,5 @@ class FinancialApp(tk.Tk):
 
 if __name__ == "__main__":
     app = FinancialApp()
+    app.title("Financial Advice Simple Expert System(Please take this advice with a grain of salt.)")
     app.mainloop()

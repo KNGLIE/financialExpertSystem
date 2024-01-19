@@ -1,6 +1,7 @@
-from experta import * 
+from experta import *
 
- # Defining a class called 'Income' which inherits from 'Fact' class
-class Income(Fact): 
+
+# Defining a class called 'Income' which inherits from 'Fact' class
+class Income(Fact):
     # Creating a field called 'income' of type integer with mandatory flag set to True
-    income = Field(int, mandatory=True)  
+    income = Field(int, mandatory=True)
