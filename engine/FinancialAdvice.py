@@ -56,7 +56,7 @@ class FinancialAdvice(KnowledgeEngine):
 
         # If emergency fund is between 0 and 6 times expenses
         elif 0 < emergency_fund < expenses * 6:
-            result_message = "Good job setting some money aside in case of an emergency. You should increase the amount to at least ${0}, which is your expenses ${1} * 6.".format(expenses * 6, expenses)
+            result_message = "Good job setting some money aside in case of an emergency. You should increase the amount to at least ${0} which is your expenses ${1} * 6.".format(expenses * 6, expenses)
 
         # If emergency fund is between 6 times expenses and 12 times expenses
         elif expenses * 6 < emergency_fund < expenses * 12:
@@ -116,7 +116,7 @@ class FinancialAdvice(KnowledgeEngine):
             result_message = "You are doing pretty good. Keep it up!! You are currently making ${0} a month.".format(income)
 
         # If income is greater than 8000
-        elif income > 8000:
+        elif income >= 8000:
             result_message = "WOW! Good for you! You are bringing in quite a bit of money! You are currently making ${0} a month.".format(income)
 
         # If income is not a number or less than 0

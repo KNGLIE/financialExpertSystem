@@ -15,20 +15,13 @@ def main():
     engine.reset()
 
     # Prompt the user for input and store the values in variables
-    # income = int(input("What is your monthly income?\n"))
-    # credit_card_debt = int(input("How much credit card debt do you have?\n"))
-    # expenses_value = int(input("What are your monthly expenses?\n"))
-    # savings_account = int(input("How much money do you have in your savings account?\n"))
-    # retirement_savings = int(input("How much do you have in your retirement savings account?\n"))
-    # age = int(input("How old are you?\n"))
-    # emergency_fund = int(input("How much do you have in your emergency fund?\n"))
-    income = 10000
-    credit_card_debt = 7000
-    expenses_value = 700
-    savings_account = 11000
-    retirement_savings = 400000
-    age = 31
-    emergency_fund = 0
+    income = int(input("What is your monthly income?\n"))
+    credit_card_debt = int(input("How much credit card debt do you have?\n"))
+    expenses_value = int(input("What are your monthly expenses?\n"))
+    savings_account = int(input("How much money do you have in your savings account?\n"))
+    retirement_savings = int(input("How much do you have in your retirement savings account?\n"))
+    age = int(input("How old are you?\n"))
+    emergency_fund = int(input("How much do you have in your emergency fund?\n"))
 
     # Create instances of the relevant fact classes and provide the values from user input
     income_fact = Income(income=income)

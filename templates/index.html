@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Advice System</title>
+    <style>
+        body {
+            min-height: 100vh;
+            background-image: url("https://thumbs.wbm.im/pw/medium/aed5b48359244706bdd4bab4172d4b82.avif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: darkgoldenrod;
+            text-shadow: 1px 1px 1px royalblue;
+            display: flex;
+            justify-content: center;
+        }
+        form {
+            color: darkgoldenrod;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0d4dc8;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        #advice {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Financial Advice System</h1>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div id="messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('index') }}">
+        <label for="income">Monthly Income:</label>
+        <input type="text" name="income" required>
+
+        <label for="expenses">Monthly Expenses:</label>
+        <input type="text" name="expenses" required>
+
+        <label for="credit_card">Credit Card Debt:</label>
+        <input type="text" name="credit_card" required>
+
+        <label for="savings">Savings Account:</label>
+        <input type="text" name="savings" required>
+
+        <label for="retirement_savings">Retirement Savings:</label>
+        <input type="text" name="retirement_savings" required>
+
+        <label for="age">Your Age:</label>
+        <input type="text" name="age" required>
+
+        <label for="emergency_fund">Emergency Fund:</label>
+        <input type="text" name="emergency_fund" required>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+</body>
+</html>
